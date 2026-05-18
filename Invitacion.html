@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Invitación - Cumpleaños Mamá Cinda</title>
+
+    <!-- FUENTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- ICONOS -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:'Montserrat',sans-serif;
+            background:#fdfbf7;
+            background-image: radial-gradient(#f3ece1 1px, transparent 1px);
+            background-size:20px 20px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:100vh;
+            padding:20px;
+            color:#4a4a4a;
+        }
+
+        .card{
+            width:100%;
+            max-width:520px;
+            background:white;
+            border-radius:24px;
+            overflow:hidden;
+            box-shadow:0 10px 30px rgba(163,145,122,0.2);
+            border:1px solid #f1eae0;
+            padding-bottom:40px;
+        }
+
+        /* ===================== */
+        /* PORTADA */
+        /* ===================== */
+
+        .cover-container{
+            position:relative;
+            width:100%;
+            height:360px;
+            background:#eaddca;
+        }
+
+        .cover-img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+        }
+
+        .cover-placeholder{
+            position:absolute;
+            inset:0;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#f7f1e7 0%,#eaddca 100%);
+            color:#8c7863;
+        }
+
+        .cover-placeholder span{
+            font-size:45px;
+            margin-bottom:10px;
+        }
+
+        /* ===================== */
+        /* BOTÓN MÚSICA */
+        /* ===================== */
+
+        .music-btn{
+            position:absolute;
+            top:20px;
+            left:50%;
+            transform:translateX(-50%);
+            width:55px;
+            height:55px;
+            border:none;
+            border-radius:50%;
+            background:rgba(255,255,255,0.92);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            cursor:pointer;
+            z-index:10;
+            box-shadow:0 4px 12px rgba(0,0,0,0.15);
+            transition:0.3s ease;
+        }
+
+        .music-btn:hover{
+            transform:translateX(-50%) scale(1.08);
+        }
+
+        .music-btn svg{
+            width:24px;
+            height:24px;
+            fill:#8c7863;
+        }
+
+        /* ===================== */
+        /* CONTENIDO */
+        /* ===================== */
+
+        .content{
+            padding:30px 25px 10px;
+            text-align:center;
+        }
+
+        .main-title{
+            font-family:'Alex Brush',cursive;
+            font-size:46px;
+            color:#8c7863;
+            margin-bottom:5px;
+        }
+
+        .subtitle{
+            font-size:14px;
+            text-transform:uppercase;
+            letter-spacing:2px;
+            color:#b5a48f;
+            margin-bottom:25px;
+            font-weight:600;
+        }
+
+        .date-section{
+            border-top:1px solid #f1eae0;
+            border-bottom:1px solid #f1eae0;
+            padding:15px 0;
+            margin-bottom:30px;
+            font-size:20px;
+            color:#5c5246;
+        }
+
+        /* ===================== */
+        /* MENSAJE */
+        /* ===================== */
+
+        .invite-message{
+            background:#faf7f2;
+            border:1px solid #f3ece1;
+            padding:20px;
+            border-radius:18px;
+            margin-bottom:30px;
+            line-height:1.7;
+            color:#6e5d4f;
+            font-size:15px;
+        }
+
+        .invite-message strong{
+            color:#8c7863;
+        }
+
+        .countdown-title{
+            font-size:13px;
+            text-transform:uppercase;
+            letter-spacing:3px;
+            color:#9a7b56;
+            margin-bottom:18px;
+            font-weight:600;
+        }
+
+        /* ===================== */
+        /* TEMPORIZADOR */
+        /* ===================== */
+
+        .countdown-container{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:10px;
+            padding:0 10px;
+        }
+
+        .countdown-box{
+            background:#faf7f2;
+            border:1px solid #f3ece1;
+            border-radius:14px;
+            padding:12px 5px;
+        }
+
+        .countdown-number{
+            display:block;
+            font-size:24px;
+            color:#6e5d4f;
+            font-weight:600;
+        }
+
+        .countdown-label{
+            display:block;
+            margin-top:4px;
+            font-size:10px;
+            color:#b5a48f;
+            text-transform:uppercase;
+            letter-spacing:1px;
+        }
+
+        /* ===================== */
+        /* GALERÍA */
+        /* ===================== */
+
+        .gallery-section{
+            margin-top:35px;
+            padding:0 20px;
+        }
+
+        .gallery-title{
+            font-size:18px;
+            color:#8c7863;
+            margin-bottom:18px;
+            font-weight:600;
+            text-align:center;
+        }
+
+        .gallery-grid{
+            display:grid;
+            grid-template-columns:repeat(2,1fr);
+            gap:12px;
+        }
+
+        .gallery-img{
+            width:100%;
+            height:160px;
+            object-fit:cover;
+            border-radius:16px;
+            transition:0.3s ease;
+            box-shadow:0 4px 12px rgba(0,0,0,0.10);
+            cursor:pointer;
+        }
+
+        .gallery-img:hover{
+            transform:scale(1.03);
+        }
+
+        /* ===================== */
+        /* POPUP IMAGEN */
+        /* ===================== */
+
+        .popup{
+            position:fixed;
+            inset:0;
+            background:rgba(0,0,0,0.85);
+            display:none;
+            justify-content:center;
+            align-items:center;
+            z-index:999;
+            padding:20px;
+        }
+
+        .popup img{
+            max-width:95%;
+            max-height:90vh;
+            border-radius:20px;
+        }
+
+        .popup-close{
+            position:absolute;
+            top:20px;
+            right:25px;
+            color:white;
+            font-size:35px;
+            cursor:pointer;
+        }
+
+        /* ===================== */
+        /* UBICACIÓN */
+        /* ===================== */
+
+        .location-section{
+            margin-top:35px;
+            padding:0 20px;
+        }
+
+        .location-title{
+            font-size:18px;
+            color:#8c7863;
+            margin-bottom:10px;
+            font-weight:600;
+            text-align:center;
+        }
+
+        .location-address{
+            margin-bottom:15px;
+            color:#6e5d4f;
+            font-size:14px;
+            text-align:center;
+        }
+
+        .map-container{
+            border-radius:18px;
+            overflow:hidden;
+            box-shadow:0 4px 12px rgba(0,0,0,0.12);
+        }
+
+        /* ===================== */
+        /* WHATSAPP */
+        /* ===================== */
+
+        .confirm-section{
+            margin-top:35px;
+            padding:0 20px;
+        }
+
+        .confirm-btn{
+            width:100%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:10px;
+            text-decoration:none;
+            background:#25D366;
+            color:white;
+            padding:16px;
+            border-radius:16px;
+            font-weight:600;
+            transition:0.3s ease;
+            box-shadow:0 4px 12px rgba(0,0,0,0.12);
+        }
+
+        .confirm-btn:hover{
+            background:#1ebe5d;
+            transform:translateY(-2px);
+        }
+
+        .confirm-btn i{
+            font-size:22px;
+        }
+
+        /* ===================== */
+        /* NOTA FINAL */
+        /* ===================== */
+
+        .footer-note{
+            margin-top:30px;
+            text-align:center;
+            font-size:14px;
+            color:#a19586;
+            font-style:italic;
+            padding:0 20px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="card">
+
+        <!-- PORTADA -->
+
+        <div class="cover-container">
+
+            <!-- BOTÓN MÚSICA -->
+
+            <button class="music-btn" onclick="toggleMusic()">
+
+                <svg id="playIcon" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+
+                <svg id="pauseIcon" viewBox="0 0 24 24" style="display:none;">
+                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                </svg>
+
+            </button>
+
+            <!-- AUDIO -->
+
+            <audio id="bgMusic" loop>
+                <source src="musica_cumpleanos.mp3" type="audio/mpeg">
+            </audio>
+
+            <!-- FOTO PRINCIPAL -->
+
+            <img
+                src="portada.png"
+                class="cover-img"
+                alt="Mamá Cinda"
+                onerror="this.style.display='none';"
+            >
+
+
+        </div>
+
+        <!-- CONTENIDO -->
+
+        <div class="content">
+
+            <h1 class="main-title">
+                Lucinda Salas Tepe
+            </h1>
+
+            <p class="subtitle">
+                Mamá Cinda
+            </p>
+
+            <div class="date-section">
+                Miércoles, 2 de Setiembre
+            </div>
+
+            <!-- MENSAJE -->
+
+            <div class="invite-message">
+
+                Hola 💖
+
+                <br><br>
+
+                Con mucha alegría quiero invitarte a celebrar conmigo un día muy especial: mi cumpleaños 🎉
+
+                <br><br>
+
+                Será una noche llena de amor, recuerdos y momentos inolvidables junto a las personas que más quiero.
+
+                <br><br>
+
+                <strong>¡Tu presencia hará este día aún más especial!</strong>
+
+            </div>
+
+            <!-- CUENTA REGRESIVA -->
+
+            <h2 class="countdown-title">
+                ¿Cuánto falta?
+            </h2>
+
+            <div class="countdown-container">
+
+                <div class="countdown-box">
+                    <span class="countdown-number" id="months">00</span>
+                    <span class="countdown-label">Meses</span>
+                </div>
+
+                <div class="countdown-box">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">Días</span>
+                </div>
+
+                <div class="countdown-box">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">Minutos</span>
+                </div>
+
+                <div class="countdown-box">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">Segundos</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- GALERÍA -->
+
+        <div class="gallery-section">
+
+            <h2 class="gallery-title">
+                📸 Recuerdos de Mamá Cinda
+            </h2>
+
+            <div class="gallery-grid">
+
+                <img src="foto1.jpg" class="gallery-img" onclick="openPopup(this.src)">
+
+                <img src="foto2.jpg" class="gallery-img" onclick="openPopup(this.src)">
+
+                <img src="foto3.jpg" class="gallery-img" onclick="openPopup(this.src)">
+
+                <img src="foto4.jpeg" class="gallery-img" onclick="openPopup(this.src)">
+
+            </div>
+
+        </div>
+
+        <!-- POPUP -->
+
+        <div class="popup" id="popup">
+
+            <span class="popup-close" onclick="closePopup()">
+                &times;
+            </span>
+
+            <img id="popup-img">
+
+        </div>
+
+        <!-- UBICACIÓN -->
+
+        <div class="location-section">
+
+            <h2 class="location-title">
+                📍 Ubicación del Evento
+            </h2>
+
+            <p class="location-address">
+                ATAHUALPA 1436 - CHICLAYO
+            </p>
+
+            <div class="map-container">
+
+                <iframe
+                    src="https://maps.google.com/maps?q=ATAHUALPA%201436%20CHICLAYO&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    width="100%"
+                    height="250"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
+
+            </div>
+
+        </div>
+
+        <!-- WHATSAPP -->
+
+        <div class="confirm-section">
+
+            <a
+                class="confirm-btn"
+                href="https://wa.me/51920659235?text=Hola%20😊%20Confirmo%20mi%20asistencia%20al%20cumpleaños%20de%20Mamá%20Cinda🎉"
+                target="_blank">
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+                Confirmar asistencia
+
+            </a>
+
+        </div>
+
+        <!-- NOTA FINAL -->
+
+        <p class="footer-note">
+            ¡Te esperamos para celebrar juntos una vida llena de amor!
+        </p>
+
+    </div>
+
+    <script>
+
+        // =====================
+        // MÚSICA
+        // =====================
+
+        const music = document.getElementById('bgMusic');
+
+        const playIcon = document.getElementById('playIcon');
+
+        const pauseIcon = document.getElementById('pauseIcon');
+
+        function toggleMusic(){
+
+            if(music.paused){
+
+                music.play().catch(error=>{
+                    console.log(error);
+                });
+
+                playIcon.style.display='none';
+                pauseIcon.style.display='block';
+
+            }else{
+
+                music.pause();
+
+                playIcon.style.display='block';
+                pauseIcon.style.display='none';
+            }
+        }
+
+        // =====================
+        // CUENTA REGRESIVA
+        // =====================
+
+        const targetDate = new Date('September 2, 2026 00:00:00').getTime();
+
+        function updateCountdown(){
+
+            const now = new Date().getTime();
+
+            const difference = targetDate - now;
+
+            if(difference <= 0){
+
+                document.getElementById('months').innerText='00';
+                document.getElementById('days').innerText='00';
+                document.getElementById('minutes').innerText='00';
+                document.getElementById('seconds').innerText='00';
+
+                clearInterval(countdownInterval);
+
+                return;
+            }
+
+            const totalSeconds = Math.floor(difference / 1000);
+
+            const totalMinutes = Math.floor(totalSeconds / 60);
+
+            const totalHours = Math.floor(totalMinutes / 60);
+
+            const totalDays = Math.floor(totalHours / 24);
+
+            const months = Math.floor(totalDays / 30.44);
+
+            const days = Math.floor(totalDays % 30.44);
+
+            const minutes = totalMinutes % 60;
+
+            const seconds = totalSeconds % 60;
+
+            document.getElementById('months').innerText =
+                String(months).padStart(2,'0');
+
+            document.getElementById('days').innerText =
+                String(days).padStart(2,'0');
+
+            document.getElementById('minutes').innerText =
+                String(minutes).padStart(2,'0');
+
+            document.getElementById('seconds').innerText =
+                String(seconds).padStart(2,'0');
+        }
+
+        updateCountdown();
+
+        const countdownInterval = setInterval(updateCountdown,1000);
+
+        // =====================
+        // POPUP FOTOS
+        // =====================
+
+        function openPopup(src){
+
+            document.getElementById('popup').style.display='flex';
+
+            document.getElementById('popup-img').src = src;
+        }
+
+        function closePopup(){
+
+            document.getElementById('popup').style.display='none';
+        }
+
+        // =====================
+        // OCULTAR PLACEHOLDER
+        // =====================
+
+        const coverImg = document.querySelector('.cover-img');
+
+        const placeholder = document.getElementById('placeholder');
+
+        coverImg.onload = function(){
+            placeholder.style.display='none';
+        };
+
+    </script>
+
+</body>
+
+</html>
